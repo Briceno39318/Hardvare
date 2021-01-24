@@ -1,0 +1,38 @@
+<main>
+  <section class="products-highlight">
+    <div class="products-banner" *ngIf="products && products.length > 0">
+      <h1 class="mat-h1">
+        {{products[0].name}}
+        <span>{{products[0].price}}$</span>
+      </h1>
+      <p>{{products[0].description}}</p>
+    </div>
+
+    <div class="products-listing container">
+      <button class="shopping-cart-btn" mat-button matSuffix mat-icon-button (click)="openCart()">
+        <mat-icon>shopping_cart</mat-icon>
+      </button>
+      <mat-form-field class="search-query-filter">
+        <mat-label>Search <mat-icon *ngIf="!filterQuery">search</mat-icon></mat-label>
+        <input matInput type="text" [(ngModel)]="filterQuery" (ngModelChange)="applyFilters()">
+        <button mat-button *ngIf="filterQuery" matSuffix mat-icon-button aria-label="Clear" (click)="clearQuery()">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+
+      <ul>
+        <li *ngFor="let product of filteredProducts">
+          <app-product-card
+          [product]="product"
+          (toggleProduct)="toggleProduct($event)"></app-product-card>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <app-shopping-cart
+    [opened]="showCart"
+    [cartProducts]="cartProducts"
+    (closeCart)="closeCart()"
+  ></app-shopping-cart>
+</main>

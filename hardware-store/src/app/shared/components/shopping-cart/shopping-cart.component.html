@@ -1,0 +1,26 @@
+<mat-drawer-container>
+    <mat-sidenav
+    #sidenav
+    class="side-nav-left"
+    position="start"
+    role="directory"
+    [autoFocus]="false"
+    [opened]="opened">
+      <div class="backdrop" (click)="close()"></div>
+        <div class="side-nav-content">
+          <button mat-icon-button class="close" (click)="close()">
+            <mat-icon>clear</mat-icon>
+          </button>
+
+          <ul>
+            <li *ngFor="let product of cartProducts">
+              <h2>{{product.name}}</h2>
+              <span>{{product.price}}$</span>
+              <button mat-icon-button color="warn" *ngIf="product.isSelected" (click)="remove(product)"><mat-icon>delete</mat-icon></button>
+            </li>
+          </ul>
+
+        </div>
+    </mat-sidenav>
+    shopping-cart-open
+  </mat-drawer-container>

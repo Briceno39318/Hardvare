@@ -1,0 +1,76 @@
+.backdrop {
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  z-index: 1001;
+  height: 100%;
+  width: 100%;
+}
+
+ul {
+  li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    h2 {
+      margin: 0;
+    }
+  }
+}
+
+.mat-drawer {
+  box-shadow: unset !important;
+}
+
+.mat-drawer-container {
+  background: transparent;
+  overflow: visible;
+  position: absolute;
+  top: -50px;
+}
+
+mat-drawer-content.mat-drawer-content {
+  overflow: visible;
+}
+
+.mat-drawer-content {
+  overflow: visible;
+}
+
+.side-nav-left {
+  position: absolute !important;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  overflow: visible;
+}
+
+.side-nav-content {
+  z-index: 1002;
+  position: absolute;
+  top: 114px;
+  left: 0;
+  width: 200px;
+  height: calc(100vh - 95px);
+  padding: 30px;
+  overflow: auto;
+  overflow-y: none;
+  box-shadow: 0 2px 14px 0 rgba(130, 130, 130, 0.5);
+  background: #FFF;
+  color: #555555 !important;
+
+  .close {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .apply {
+    display: block;
+    margin: 0 auto;
+  }
+}
